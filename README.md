@@ -5,7 +5,7 @@
 |---|---------|------|-----------|--------|
 | 1 | [Iris Species Classifier](./classification) | Classification | Random Forest |  
 | 2 | [Diabetes Progression Predictor](./regression) | Regression | Linear Regression, Random Forest | 
-| 3 | [MLOps Pipeline](./mlops-mlflow) | Experiment tracking & model registry | MLflow | ✅ Done |
+| 3 | [MLOps Pipeline](./mlops-mlflow) | Experiment tracking & model registry | MLflow | 
 
 
 ## Repo structure
