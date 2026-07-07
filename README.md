@@ -1,8 +1,8 @@
 
 ## Projects
 
-| # | Project | Type | Algorithm | Status |
-|---|---------|------|-----------|--------|
+| # | Project | Type | Algorithm |
+|---|---------|------|-----------|
 | 1 | [Iris Species Classifier](./classification) | Classification | Random Forest |  
 | 2 | [Diabetes Progression Predictor](./regression) | Regression | Linear Regression, Random Forest | 
 | 3 | [MLOps Pipeline](./mlops-mlflow) | Experiment tracking & model registry | MLflow | 
