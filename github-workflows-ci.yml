@@ -1,0 +1,49 @@
+# Save this file in your repo as: .github/workflows/ci.yml
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  train-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Train classification model
+        run: cd classification && python train.py
+
+      - name: Train regression model
+        run: cd regression && python train.py
+
+      - name: Run MLflow experiment tracking
+        run: cd mlops-mlflow && python train.py
+
+      - name: Save serving model + smoke-test API
+        run: |
+          cd serving
+          python save_model.py
+          python - <<'EOF'
+          from fastapi.testclient import TestClient
+          from app import app
+          c = TestClient(app)
+          assert c.get("/health").json() == {"status": "ok"}
+          r = c.post("/predict", json={
+              "sepal_length": 5.1, "sepal_width": 3.5,
+              "petal_length": 1.4, "petal_width": 0.2,
+          })
+          assert r.status_code == 200
+          assert r.json()["species"] == "setosa"
+          print("API smoke test passed:", r.json())
+          EOF

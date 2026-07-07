@@ -23,7 +23,16 @@
 │   └── README.md
 ├── requirements.txt
 └── README.md
+Project 4: FastAPI prediction service
+│   ├── save_model.py
+│   ├── app.py
+│   └── README.md
+├── .github/workflows/ # Project 5: CI pipeline
+│   └── ci.yml
+├── requirements.txt
+└── README.md
 ```
+
 ## Setup
 
 ```bash

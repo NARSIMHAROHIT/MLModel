@@ -1,0 +1,7 @@
+# rename this file to .gitignore in your repo root
+__pycache__/
+.venv/
+mlruns/
+mlflow.db
+mlartifacts/
+*.joblib
