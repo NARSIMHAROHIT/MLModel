@@ -18,10 +18,12 @@
 ├── regression/        # Project 2: diabetes progression prediction
 │   ├── train.py
 │   └── diabetes.csv
+├── mlops-mlflow/      # Project 3: experiment tracking + model registry
+│   ├── train.py
+│   └── README.md
 ├── requirements.txt
 └── README.md
 ```
-
 ## Setup
 
 ```bash
